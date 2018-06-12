@@ -1,0 +1,27 @@
+body {
+  background-color: grey;
+  padding-top: 10px;
+
+}
+.jumbotron {
+  color: white;
+  background-color: #212529;
+}
+
+[class*="col-"], footer {
+  background-color: #212529;
+  border: 2px solid #32383e;
+  border-radius: 6px;
+  line-height: 40px;
+  text-align: center;
+}
+.table-bordered td, .table-bordered th {
+  border-color: #d1a93a;
+}
+td {
+  width:100px;
+  height:250px;
+}
+table {
+  text-align: center;
+}
