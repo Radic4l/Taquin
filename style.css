@@ -25,3 +25,8 @@ td {
 table {
   text-align: center;
 }
+
+.pion{
+  padding-top: 40%;
+  display: block;
+}
