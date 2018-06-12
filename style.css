@@ -27,6 +27,15 @@ table {
 }
 
 .pion{
-  padding-top: 40%;
-  display: block;
+  font-size: 25px;
+  padding-top: 35%;
+  margin-top: 5%;
+  margin-left: 5%;
+  width: 90%;
+  height: 90%;
+  border-radius: 10%;
+  background-color: grey;
+}
+h1 {
+  font-size: 80px;
 }
