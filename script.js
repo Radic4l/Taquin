@@ -4,6 +4,8 @@ var grille = new Array();
 var theme = new Array();
 theme = [null, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 var indexTheme = 0;
+var positionVoidCase = new Array();
+positionVoidCase = [0,0]
 
 for(var i=0; i<4; i++){
   grille[i] = new Array();
@@ -15,6 +17,11 @@ for(var i=0; i<4; i++){
   }
 }
 
+var reference = new Array();
+reference = grille;
+
+/*-------------------------------------------------------*/
+
 generateCases();
 
 $("button").click(function(){
@@ -25,7 +32,7 @@ $("td").click(function(){
       monId = $(this).attr('id');
       chn1 = monId.slice(0, 1);
       chn2 = monId.slice(2, 3);
-    console.log(chn1 + " " + chn2);
+    console.log(chn1 + " TEST" + chn2);
 
 });
 
@@ -54,11 +61,15 @@ function generateCases(){
 }
 
 
-function randomiseCases()
+/*function randomiseCases()
 {
 
-}
+}*/
 
+
+	function permutable(i, j){
+		
+	}
 
 
 });
