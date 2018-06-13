@@ -11,7 +11,22 @@ for(var i=0; i<4; i++){
     console.log(indexTheme + " " + theme[indexTheme]);
     indexTheme++;
   }
+  generateCases();
 }
 
-console.log(theme);
-console.log(grille);
+
+
+
+function generateCases(){
+	console.log("test");
+	$( ".container" ).html(function(){
+		while (n < theme.length) {
+			n++;
+			var my = "<td>" + theme[n] + "</td>";
+		}
+		my = "<td>" + theme[0] + "</td>";
+		return "<tr>All new content for " + my + "</tr>";
+	});
+
+	return true;
+}
