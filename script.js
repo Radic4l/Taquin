@@ -15,26 +15,34 @@ for(var i=0; i<4; i++){
   }
 }
 
+generateCases();
+
 $("button").click(function(){
-      generateCases();
+      randomiseCases();
 });
 
+$("td").click(function(){
+      monId = $(this).attr('id');
+      chn1 = monId.slice(0, 1);
+      chn2 = monId.slice(2, 3);
+    console.log(chn1 + " " + chn2);
 
+});
 
 function generateCases(){
 	console.log("test");
-	var n = 0;
 	var x = 0;
+	var y = 0;
 	var myCases = "";
-	while ( n < theme.length-1) {
+	while ( x < 4) {
 		
 		myCases = myCases + "<tr>";
-		while(x < 4){
-			var myCases = myCases + "<td>" + theme[n] + "</td>";
-			n++;
-			x++;
+		while(y < 4){
+			myCases = myCases + "<td id='" + x + "_" + y + "'>" +  grille[x][y] + "</td>";
+			y++;
 		}
-		x = 0;
+		x++;
+		y = 0;
 		myCases = myCases + "</tr>";
 	}
 
@@ -43,6 +51,12 @@ function generateCases(){
 	$( "tbody" ).html(myCases);
 	
 	return true;
+}
+
+
+function randomiseCases()
+{
+
 }
 
 
