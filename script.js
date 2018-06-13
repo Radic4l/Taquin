@@ -33,6 +33,7 @@ $("td").click(function(){
       chn1 = monId.slice(0, 1);
       chn2 = monId.slice(2, 3);
     console.log(chn1 + " TEST" + chn2);
+    permutable(chn1, chn2);
 
 });
 
@@ -68,8 +69,50 @@ function generateCases(){
 
 
 	function permutable(i, j){
+		var possible = false;
+		var x = 0;
+		var isAroundVoid =new Array();
+
+		isAroundVoid = limitsVoid();
 		
+		while(x < isAroundVoid.length)	
+		{
+			if( isAroundVoid[x] == grille[i][j])
+			{
+				possible = true;
+			}
+			x++;
+		}
+		console.log(possible);
+		return isAroundVoid;
 	}
 
+
+	function limitsVoid()
+	{
+		var aroundVoid = new Array();
+		if(positionVoidCase[0] != 0)
+		{
+			aroundVoid.push(grille[positionVoidCase[0]-1][positionVoidCase[1]]);
+		}
+
+		if(positionVoidCase[1] != 0)
+		{
+			aroundVoid.push(grille[positionVoidCase[0]][positionVoidCase[1]-1]);
+		}
+
+		if(positionVoidCase[0] != 3)
+		{
+			aroundVoid.push(grille[positionVoidCase[0]+1][positionVoidCase[1]]);
+		}
+
+		if(positionVoidCase[1] != 3)
+		{
+			aroundVoid.push(grille[positionVoidCase[0]][positionVoidCase[1]+1]);
+		}
+
+		return aroundVoid;
+
+	}
 
 });
