@@ -19,13 +19,27 @@ for(var i=0; i<4; i++){
 
 var reference = new Array();
 reference = grille;
-
-/*-------------------------------------------------------*/
+console.log(grille)/*-------------------------------------------------------*/
 
 generateCases();
 
+function permute (i, j) {
+
+/*	var test54 = true;
+*/
+		var tamponVal = grille[i][j];
+		grille[i][j] = grille[positionVoidCase[0]][positionVoidCase[1]];
+		grille[positionVoidCase[0]][positionVoidCase[1]] = tamponVal;
+		positionVoidCase[0] = i;
+		positionVoidCase[1] = j;
+		console.log(positionVoidCase);
+
+		
+	
+};
+
 $("button").click(function(){
-      randomiseCases();
+      generateCases();
 });
 
 $("td").click(function(){
@@ -34,6 +48,7 @@ $("td").click(function(){
       chn2 = monId.slice(2, 3);
     console.log(chn1 + " TEST" + chn2);
     permutable(chn1, chn2);
+        console.log(grille);
 
 });
 
@@ -42,7 +57,7 @@ function generateCases(){
 	var x = 0;
 	var y = 0;
 	var myCases = "";
-	while ( x < 4) {
+	while (x < 4) {
 		
 		myCases = myCases + "<tr>";
 		while(y < 4){
@@ -62,6 +77,7 @@ function generateCases(){
 }
 
 
+
 /*function randomiseCases()
 {
 
@@ -69,50 +85,9 @@ function generateCases(){
 
 
 	function permutable(i, j){
-		var possible = false;
-		var x = 0;
-		var isAroundVoid =new Array();
-
-		isAroundVoid = limitsVoid();
 		
-		while(x < isAroundVoid.length)	
-		{
-			if( isAroundVoid[x] == grille[i][j])
-			{
-				possible = true;
-			}
-			x++;
-		}
-		console.log(possible);
-		return isAroundVoid;
-	}
-
-
-	function limitsVoid()
-	{
-		var aroundVoid = new Array();
-		if(positionVoidCase[0] != 0)
-		{
-			aroundVoid.push(grille[positionVoidCase[0]-1][positionVoidCase[1]]);
-		}
-
-		if(positionVoidCase[1] != 0)
-		{
-			aroundVoid.push(grille[positionVoidCase[0]][positionVoidCase[1]-1]);
-		}
-
-		if(positionVoidCase[0] != 3)
-		{
-			aroundVoid.push(grille[positionVoidCase[0]+1][positionVoidCase[1]]);
-		}
-
-		if(positionVoidCase[1] != 3)
-		{
-			aroundVoid.push(grille[positionVoidCase[0]][positionVoidCase[1]+1]);
-		}
-
-		return aroundVoid;
 
 	}
 
 });
+
