@@ -19,23 +19,24 @@ for(var i=0; i<4; i++){
 
 var reference = new Array();
 reference = grille;
-console.log(grille)/*-------------------------------------------------------*/
 
 generateCases();
 
 
 
 function permute (i, j) {
+	console.log("permutable" +permutable(i,j));
+	if(permutable(i,j))
+	{
+		console.log("TEEEEEEEEEEEEEEEEEEEEEEST");
 
-/*	var test54 = true;
-*/
 		var tamponVal = grille[i][j];
 		grille[i][j] = grille[positionVoidCase[0]][positionVoidCase[1]];
 		grille[positionVoidCase[0]][positionVoidCase[1]] = tamponVal;
 		positionVoidCase[0] = i;
 		positionVoidCase[1] = j;
 		console.log(positionVoidCase);
-
+}
 		
 	
 };
@@ -51,9 +52,8 @@ $("td").click(function(){
 	var i = parseInt(chn1);
 	var j = parseInt(chn2);
 	console.log(i + "  " + j);
-	permutable(i, j);
+	permute(i, j);
 	console.log(grille);
-	console.log(permutable(i,j));
 
 });
 
@@ -83,17 +83,11 @@ function generateCases(){
 
 
 
-/*function randomiseCases()
-{
-
-}*/
-
 
 	function permutable(i, j){
 
 		if(exist(i-1,j))
 		{
-
 			if (grille[i-1][j] == null) {
 				console.log('BALISE OF DOOOOOOOOOOOOOOOOOOOOM 1');
 				return true;
