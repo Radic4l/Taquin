@@ -23,6 +23,8 @@ console.log(grille)/*-------------------------------------------------------*/
 
 generateCases();
 
+
+
 function permute (i, j) {
 
 /*	var test54 = true;
@@ -43,12 +45,15 @@ $("button").click(function(){
 });
 
 $("td").click(function(){
-      monId = $(this).attr('id');
-      chn1 = monId.slice(0, 1);
-      chn2 = monId.slice(2, 3);
-    console.log(chn1 + " TEST" + chn2);
-    permutable(chn1, chn2);
-        console.log(grille);
+	monId = $(this).attr('id');
+	chn1 = monId.slice(0, 1);
+	chn2 = monId.slice(2, 3);
+	var i = parseInt(chn1);
+	var j = parseInt(chn2);
+	console.log(i + "  " + j);
+	permutable(i, j);
+	console.log(grille);
+	console.log(permutable(i,j));
 
 });
 
@@ -85,8 +90,60 @@ function generateCases(){
 
 
 	function permutable(i, j){
-		
 
+		if(exist(i-1,j))
+		{
+
+			if (grille[i-1][j] == null) {
+				console.log('BALISE OF DOOOOOOOOOOOOOOOOOOOOM 1');
+				return true;
+			}
+		}
+		if(exist(i+1,j))
+		{
+			if (grille[i+1][j] == null) {
+
+				console.log('BALISE OF DOOOOOOOOOOOOOOOOOOOOM 2');
+				return true;
+			}
+		}
+
+		if(exist(i,j-1) )
+		{
+			if (grille[i][j-1] == null) {
+				console.log('BALISE OF DOOOOOOOOOOOOOOOOOOOOM 3');
+				return true;
+			}
+		}	
+		console.log("Exist : " +exist(i,j+1));
+
+		if(exist(i,j+1))
+		{
+			if (grille[i][j+1] == null) {
+				console.log('BALISE OF DOOOOOOOOOOOOOOOOOOOOM 4');
+				return true;
+			}
+		}
+
+
+		return false;
+
+
+	}
+
+	function exist(i, j)
+	{
+		var possible;
+		console.log("j : " +j);
+
+		if( i<0 || i>3 || j<0 || j>3)
+		{
+			possible = false;
+
+		}else{
+			possible = true;
+		}
+		return possible;
 	}
 
 });
