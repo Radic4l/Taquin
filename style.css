@@ -39,3 +39,6 @@ table {
 h1 {
   font-size: 80px;
 }
+.blank {
+  background-color: white;
+}
