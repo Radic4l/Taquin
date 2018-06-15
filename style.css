@@ -17,15 +17,14 @@ body {
 }
 .table-bordered td, .table-bordered th {
   border-color: #d1a93a;
+  border-width: medium;
 }
 td {
-  width:100px;
   height:250px;
 }
 table {
   text-align: center;
 }
-
 .pion{
   font-size: 25px;
   padding-top: 35%;
