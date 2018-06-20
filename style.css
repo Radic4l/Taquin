@@ -20,19 +20,19 @@ body {
   border-width: medium;
 }
 tr{
-  width: 1000px;
-  height: 250px;
+  width: 880px;
+  height: 200px;
 }
 td {
-  width:250px;
-  height:250px;
+  width:220px;
+  height:220px;
   background-repeat: no-repeat;
   background-size: contain;
 }
 table {
   text-align: center;
 }
-.pion{
+/* .pion{
   font-size: 25px;
   padding-top: 35%;
   margin-top: 5%;
@@ -41,7 +41,7 @@ table {
   height: 90%;
   border-radius: 10%;
   background-color: grey;
-}
+} */
 h1 {
   font-size: 80px;
 }
@@ -49,7 +49,7 @@ h1 {
   background-color: black;
 }
 
-#id0_0{
-  background-image: url(cards/1.png);
 
+.container{
+  padding-left: 100px;
 }

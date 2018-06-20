@@ -37,12 +37,10 @@ function generateCases(){ // création de notre tableau de jeu en fonction de gr
 		myCases = myCases + "<tr>";
 		while(y < 4){
       if(grille[x][y] == null){
-        myCases = myCases + "<td class='blank' id='id" + x + "_" + y + "'>Blaval</td>";
+        myCases = myCases + "<td class='blank' id='id" + x + "_" + y + "'></td>";
   			y++;
       }else{
-
-				console.log(monId + "    ");
-        myCases = myCases + "<td class='montd' id='id" + x + "_" + y + "'>" +  grille[x][y] + "</td>";
+        myCases = myCases + "<td class='montd' id='id" + x + "_" + y + "'></td>";
 				$(monId).css("background-image", "url('" + monBackground + ")");
 
   			y++;
@@ -63,10 +61,15 @@ function generateCases(){ // création de notre tableau de jeu en fonction de gr
 	var monBackground = "";
 	while (x2 < 4) {
 		while (y2 < 4) {
-			monId = "#id" + x2 + "_" + y2;
-			monBackground =  grille[x2][y2] + ".png";
-			$(monId).css("background-image", "url('Cards/" + monBackground + "')");
-			y2++;
+			if(grille[x2][y2] == null){
+				console.log("VIDE");
+			}else {
+				monId = "#id" + x2 + "_" + y2;
+				monBackground =  grille[x2][y2] + ".png";
+				$(monId).css("background-image", "url('Cards/" + monBackground + "')");
+			}
+				y2++;
+
 		}
 		y2 = 0;
 		x2++;
