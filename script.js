@@ -4,8 +4,11 @@ var grille = new Array();
 var theme = new Array();
 var indexTheme = 0;
 var positionVoidCase = new Array();
+var design = new Array();
 /////////////////////////////////// parametrage de la partie
 theme = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+design = ["/","Cards/"]; //Rajouter le nom des dossier contenant les design des cases
+var indiceDesign = 0; // Commence toujours par le design à l'indice 0 du tableau design
 theme.push(null);
 positionVoidCase = [3,3];
 var nameTd = "id2_2";
@@ -33,6 +36,8 @@ function generateCases(){ // création de notre tableau de jeu en fonction de gr
 	var x = 0;
 	var y = 0;
 	var myCases = "";
+	var monId = "";
+	var monBackground = "";
 	while (x < 4) {
 		myCases = myCases + "<tr>";
 		while(y < 4){
@@ -40,9 +45,8 @@ function generateCases(){ // création de notre tableau de jeu en fonction de gr
         myCases = myCases + "<td class='blank' id='id" + x + "_" + y + "'></td>";
   			y++;
       }else{
-        myCases = myCases + "<td class='montd' id='id" + x + "_" + y + "'></td>";
+        myCases = myCases + "<td class='montd' id='id" + x + "_" + y + "'>"+ grille[x][y] +"</td>";
 				$(monId).css("background-image", "url('" + monBackground + ")");
-
   			y++;
       }
 
@@ -55,6 +59,8 @@ function generateCases(){ // création de notre tableau de jeu en fonction de gr
 
 	$( "tbody" ).html(myCases);
 
+////////////////// THEME CARTES
+function theme(monTheme){
 	var x2 = 0;
 	var y2 = 0;
 	var monId = "";
@@ -65,8 +71,9 @@ function generateCases(){ // création de notre tableau de jeu en fonction de gr
 				console.log("VIDE");
 			}else {
 				monId = "#id" + x2 + "_" + y2;
-				monBackground =  grille[x2][y2] + ".png";
-				$(monId).css("background-image", "url('Cards/" + monBackground + "')");
+				monBackground =  monTheme + grille[x2][y2] + ".png";
+				console.log(monBackground);
+				$(monId).css("background-image", "url('" + monBackground + "')");
 			}
 				y2++;
 
@@ -74,7 +81,19 @@ function generateCases(){ // création de notre tableau de jeu en fonction de gr
 		y2 = 0;
 		x2++;
 	}
+}
+	////////////////// END THEME CARTES
+	$("#theme").click(function(){
+		if(indiceDesign < design.length)
+		{
+			indiceDesign++;
+		}else {
+			indiceDesign = 0;
+		}
 
+		theme(design[indiceDesign]);
+
+	});
 
   $(".montd").click(function(){
   	monId = $(this).attr('id');
