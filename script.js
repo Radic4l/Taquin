@@ -5,8 +5,13 @@ var theme = new Array();
 var indexTheme = 0;
 var positionVoidCase = new Array();
 /////////////////////////////////// parametrage de la partie
-theme = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, null];
+theme = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+theme.push(null);
 positionVoidCase = [3,3];
+var nameTd = "id2_2";
+var nameImg = "5.png"
+$(name).css("background-image", nameImg);
+
 ////////////////////////////////// Fonctions
 function permute (i, j) {  // Echange deux valeurs dans le tableau de
 	console.log("permutable" + permutable(i,j));
@@ -32,10 +37,14 @@ function generateCases(){ // création de notre tableau de jeu en fonction de gr
 		myCases = myCases + "<tr>";
 		while(y < 4){
       if(grille[x][y] == null){
-        myCases = myCases + "<td class='blank' id='" + x + "_" + y + "'></td>";
+        myCases = myCases + "<td class='blank' id='id" + x + "_" + y + "'>Blaval</td>";
   			y++;
       }else{
-        myCases = myCases + "<td class='montd' id='" + x + "_" + y + "'>" +  grille[x][y] + "</td>";
+
+				console.log(monId + "    ");
+        myCases = myCases + "<td class='montd' id='id" + x + "_" + y + "'>" +  grille[x][y] + "</td>";
+				$(monId).css("background-image", "url('" + monBackground + ")");
+
   			y++;
       }
 
@@ -44,11 +53,30 @@ function generateCases(){ // création de notre tableau de jeu en fonction de gr
 		y = 0;
 		myCases = myCases + "</tr>";
 	}
+
+
 	$( "tbody" ).html(myCases);
+
+	var x2 = 0;
+	var y2 = 0;
+	var monId = "";
+	var monBackground = "";
+	while (x2 < 4) {
+		while (y2 < 4) {
+			monId = "#id" + x2 + "_" + y2;
+			monBackground =  grille[x2][y2] + ".png";
+			$(monId).css("background-image", "url('Cards/" + monBackground + "')");
+			y2++;
+		}
+		y2 = 0;
+		x2++;
+	}
+
+
   $(".montd").click(function(){
   	monId = $(this).attr('id');
-  	chn1 = monId.slice(0, 1);
-  	chn2 = monId.slice(2, 3);
+  	chn1 = monId.slice(2, 3);
+  	chn2 = monId.slice(4, 5);
   	var i = parseInt(chn1);
   	var j = parseInt(chn2);
   	console.log(i + "  " + j);
@@ -139,11 +167,18 @@ function clone2d(arr){ // Duplication du plateau de jeu
 }
 /////
 function initializeGame(){ // initialisation du plateau de jeu
+	var nb = 1;
+	var nameTd = "";
+	var nameImg = "";
   for(var i=0; i<4; i++){
     grille[i] = new Array();
     for(var j=0; j<4; j++)
     {
       grille[i][j] = theme[indexTheme];
+			nameTd = "id"+i+"_"+j;
+			nameImg = nb+".png"
+			$(name).css("background-image", nameImg);
+			nb++;
       // console.log(indexTheme + " " + theme[indexTheme]);
       indexTheme++;
     }

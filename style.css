@@ -18,9 +18,15 @@ body {
 .table-bordered td, .table-bordered th {
   border-color: #d1a93a;
 }
+tr{
+  width: 1000px;
+  height: 250px;
+}
 td {
-  width:100px;
+  width:250px;
   height:250px;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 table {
   text-align: center;
@@ -40,5 +46,10 @@ h1 {
   font-size: 80px;
 }
 .blank {
-  background-color: white;
+  background-color: black;
+}
+
+#id0_0{
+  background-image: url(cards/1.png);
+
 }
