@@ -84,7 +84,7 @@ function generateCases(){ // création de notre tableau de jeu en fonction de gr
   	console.log("grille : " + grille);
     console.log("ref :" + reference);
     generateCases();
-    console.log(won());
+    //console.log(won());
     if (won()) {
       alert('GG');
     }

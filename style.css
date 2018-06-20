@@ -17,6 +17,7 @@ body {
 }
 .table-bordered td, .table-bordered th {
   border-color: #d1a93a;
+  border-width: medium;
 }
 tr{
   width: 1000px;
@@ -31,7 +32,6 @@ td {
 table {
   text-align: center;
 }
-
 .pion{
   font-size: 25px;
   padding-top: 35%;
