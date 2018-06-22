@@ -1,6 +1,7 @@
 body {
-  background-color: grey;
-  padding-top: 10px;
+background-image: url("background/flag.jpg");
+  /* padding-top: 10px; */
+  background-size: cover;
 
 }
 .jumbotron {
@@ -32,7 +33,7 @@ td {
 table {
   text-align: center;
 }
-/* .pion{
+.pion{
   font-size: 25px;
   padding-top: 35%;
   margin-top: 5%;
@@ -41,7 +42,9 @@ table {
   height: 90%;
   border-radius: 10%;
   background-color: grey;
-} */
+}
+
+
 h1 {
   font-size: 80px;
 }

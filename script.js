@@ -45,7 +45,7 @@ function generateCases(){ // création de notre tableau de jeu en fonction de gr
         myCases = myCases + "<td class='blank' id='id" + x + "_" + y + "'></td>";
   			y++;
       }else{
-        myCases = myCases + "<td class='montd' id='id" + x + "_" + y + "'>"+ grille[x][y] +"</td>";
+        myCases = myCases + "<td class='montd' id='id" + x + "_" + y + "'></td>";
 				$(monId).css("background-image", "url('" + monBackground + ")");
   			y++;
       }
@@ -58,7 +58,7 @@ function generateCases(){ // création de notre tableau de jeu en fonction de gr
 
 
 	$( "tbody" ).html(myCases);
-
+theme(design[indiceDesign]);
 ////////////////// THEME CARTES
 function theme(monTheme){
 	var x2 = 0;
