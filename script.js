@@ -7,7 +7,7 @@ var positionVoidCase = new Array();
 var design = new Array();
 /////////////////////////////////// parametrage de la partie
 theme = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
-design = ["/","Cards/"]; //Rajouter le nom des dossier contenant les design des cases
+design = ["Cards/","Cards/"]; //Rajouter le nom des dossier contenant les design des cases
 var indiceDesign = 0; // Commence toujours par le design à l'indice 0 du tableau design
 theme.push(null);
 positionVoidCase = [3,3];
@@ -106,6 +106,7 @@ function theme(monTheme){
   	console.log("grille : " + grille);
     console.log("ref :" + reference);
     generateCases();
+		theme(design[indiceDesign]);
     //console.log(won());
     if (won()) {
       alert('GG');
